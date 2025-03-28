@@ -4,9 +4,19 @@
   "description": "A bot to post yes/no polls in Discord, such as: \"Will you be playing D&D tonight?\"",
   "license": "ISC",
   "author": "Travis McDaniel",
-  "type": "module",
-  "main": "index.js",
+  "type": "commonjs",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-bot": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "commandkit": "^0.1.10",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }
