@@ -1,4 +1,4 @@
-const { Client } = require("discord.js");
+const { Client, EmbedBuilder } = require("discord.js");
 const { CommandKit } = require("commandkit");
 require("dotenv").config();
 
@@ -28,6 +28,16 @@ client.on("messageCreate", (message) => {
     messageContent.includes("hey")
   ) {
     message.reply("Hey there!");
+  } else if (messageContent === "embed") {
+    const embed = new EmbedBuilder()
+      .setTitle("Embed Title")
+      .setDescription("This is an embed description.")
+      .setColor("Random")
+      .addFields(
+        { name: "Field Title", value: "Some value.", inline: true },
+        { name: "Second Field Title", value: "Some other value.", inline: true }
+      );
+    message.channel.send({ embeds: [embed] });
   }
 });
 
@@ -36,11 +46,16 @@ client.on("interactionCreate", (interaction) => {
     return;
   }
 
-  if (interaction.commandName === "add") {
-    const num1 = interaction.options.get("first-number").value;
-    const num2 = interaction.options.get("second-number").value;
-
-    interaction.reply(`The sum is ${num1 + num2}`);
+  if (interaction.commandName === "embed") {
+    const embed = new EmbedBuilder()
+      .setTitle("Embed Title")
+      .setDescription("This is an embed description.")
+      .setColor("Random")
+      .addFields(
+        { name: "Field Title", value: "Some value.", inline: true },
+        { name: "Second Field Title", value: "Some other value.", inline: true }
+      );
+    interaction.reply({ embeds: [embed] });
   }
 });
 
