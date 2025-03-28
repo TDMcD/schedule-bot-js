@@ -22,7 +22,7 @@ module.exports = async (client) => {
 
       if (existingCommand) {
         if (localCommand.deleted) {
-          await applicationCommands.deleted(existingCommand.id);
+          await applicationCommands.delete(existingCommand.id);
           console.log(`🗑️ Deleted command "${name}".`);
           continue;
         }

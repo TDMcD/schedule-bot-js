@@ -25,7 +25,7 @@ module.exports = {
 
     if (targetUser.id === interaction.guild.ownerId) {
       await interaction.editReply(
-        "You can't ban that user because they're the server owner."
+        "You can't kick that user because they're the server owner."
       );
       return;
     }
@@ -36,45 +36,45 @@ module.exports = {
 
     if (targetUserRolePosition >= requestUserRolePosition) {
       await interaction.editReply(
-        "You can't ban that user because they have the same/higher role than you."
+        "You can't kick that user because they have the same/higher role than you."
       );
       return;
     }
 
     if (targetUserRolePosition >= botRolePosition) {
       await interaction.editReply(
-        "I can't ban that user because they have the same/higher role than me."
+        "I can't kick that user because they have the same/higher role than me."
       );
       return;
     }
 
-    // Ban the target user
+    // Kick the target user
     try {
-      //await targetUser.ban({ reason });
+      //   await targetUser.kick(reason);
       const commandUser = interaction.member;
       await interaction.editReply(
-        `${commandUser} dropped the ban-hammer on ${targetUser}.\nReason: ${reason}`
+        `${commandUser} dropped the kick-hammer on ${targetUser}.\nReason: ${reason}`
       );
     } catch (error) {
-      console.log(`There was an error banning a user: ${error}`);
+      console.log(`There was an error kicking a user: ${error}`);
     }
 
     interaction.reply("Ban-hammer...");
   },
-  name: "ban",
-  description: "Bans a member from the server!",
+  name: "kick",
+  description: "Kicks a member from the server!",
   // devOnly: Boolean,
   // testOnly: Boolean,
   options: [
     {
       name: "target-user",
-      description: "The user to ban.",
+      description: "The user to kick.",
       required: true,
       type: ApplicationCommandOptionType.Mentionable,
     },
     {
       name: "reason",
-      description: "The reason for the ban.",
+      description: "The reason for the kick.",
       type: ApplicationCommandOptionType.String,
     },
   ],
