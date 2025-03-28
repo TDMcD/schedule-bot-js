@@ -1,0 +1,12 @@
+{
+  "name": "schedule_bot_js",
+  "version": "1.0.0",
+  "description": "A bot to post yes/no polls in Discord, such as: \"Will you be playing D&D tonight?\"",
+  "license": "ISC",
+  "author": "Travis McDaniel",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
