@@ -6,6 +6,7 @@ const {
   Events,
   REST,
   Routes,
+  Poll,
 } = require("discord.js");
 const { CommandKit } = require("commandkit");
 const eventHandler = require("./handlers/eventHandler");
@@ -22,6 +23,23 @@ const client = new Client({
     "GuildMessagePolls",
   ],
 });
+
+// client.on(Events.ClientReady, async () => {
+//   const channel = client.channels.cache.get("1110717492525019188");
+//   if (channel) {
+//     channel.send({
+//       poll: {
+//         question: { text: "Are you going to play the Pathfinder tonight?" },
+//         answers: [
+//           { text: "Yes", emoji: "👍" },
+//           { text: "No", emoji: "👎" },
+//         ],
+//         allowMultiSelect: false,
+//         duration: 12,
+//       },
+//     });
+//   }
+// });
 
 // For deleting global commands
 // client.on(Events.ClientReady, async () => {
