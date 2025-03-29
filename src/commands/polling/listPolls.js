@@ -24,7 +24,9 @@ module.exports = {
         .setTitle("Polls")
         .setDescription("These are your polls on this server.")
         // .setTimestamp()
-        .setFooter({ text: "To delete a poll, use /delete-poll <id>." });
+        .setFooter({
+          text: 'To delete a single poll, use "/delete-poll <id>". To delete all polls, use "/delete-poll all"',
+        });
 
       for (const poll of pollList) {
         const day_of_the_week =
@@ -32,9 +34,10 @@ module.exports = {
           String(poll.day_of_the_week).slice(1);
         pollListEmbed.addFields({
           name: `${poll.poll_text}`,
-          value: `Day of the week: ${String(day_of_the_week)}\nDuration: ${
-            poll.duration
-          } hours`,
+          value:
+            `ID: ${poll.id}\n` +
+            `Day of the week: ${String(day_of_the_week)}\n` +
+            `Duration: ${poll.duration} hours`,
         });
       }
 
