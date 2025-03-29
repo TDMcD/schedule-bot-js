@@ -8,7 +8,6 @@ const {
   Routes,
   Poll,
 } = require("discord.js");
-const { CommandKit } = require("commandkit");
 const eventHandler = require("./handlers/eventHandler");
 const getApplicationCommands = require("./utils/getApplicationCommands");
 const { clientId } = require("../config.json");

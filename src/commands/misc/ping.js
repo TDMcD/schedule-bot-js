@@ -20,7 +20,5 @@ module.exports = {
     interaction.editReply(
       `Pong! Client: ${ping}ms, Websocket: ${client.ws.ping}ms`
     );
-    console.log(`interaction.guildId: ${interaction.guildId}`);
-    console.log(`interaction.guild.id: ${interaction.guild.id}`);
   },
 };
