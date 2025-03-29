@@ -17,8 +17,6 @@ module.exports = {
         where: { member_id: memberId, guild_id: guildId },
       });
 
-      console.log(pollList);
-
       const pollListEmbed = new EmbedBuilder()
         .setColor("Gold")
         .setTitle("Polls")
@@ -37,7 +35,8 @@ module.exports = {
           value:
             `ID: ${poll.id}\n` +
             `Day of the week: ${String(day_of_the_week)}\n` +
-            `Duration: ${poll.duration} hours`,
+            `Duration: ${poll.duration} hours\n` +
+            `Last Posted: ${poll.last_displayed ?? "never"}`,
         });
       }
 
