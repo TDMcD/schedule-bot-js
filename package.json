@@ -11,7 +11,6 @@
     "start-bot": "nodemon src/index.js"
   },
   "dependencies": {
-    "commandkit": "^0.1.10",
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
     "sequelize": "^6.37.7",
