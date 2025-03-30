@@ -58,10 +58,10 @@ module.exports = {
         last_displayed: lastDisplayed,
       });
 
-      console.log(`--Poll setup-- Day: ${day}`);
-      console.log(`--Poll setup-- Text: ${text}`);
-      console.log(`--Poll setup-- ChannelId: ${channelId}`);
-      console.log(`--Poll setup-- Immediate: ${immediate}`);
+      // console.log(`--Poll setup-- Day: ${day}`);
+      // console.log(`--Poll setup-- Text: ${text}`);
+      // console.log(`--Poll setup-- ChannelId: ${channelId}`);
+      // console.log(`--Poll setup-- Immediate: ${immediate}`);
       //   console.log(`TypeOf duration: ${typeof duration}`);
 
       await interaction.editReply("Poll setup complete.", {
