@@ -22,8 +22,8 @@ module.exports = {
       const text = interaction.options.get("text").value;
       const channelId = interaction.options.get("channel").value;
       const immediate = interaction.options.get("immediate").value;
-      const duration = interaction.options.get("duration").value;
-      const lastDisplayed = null;
+      const duration = interaction.options.get("duration")?.value ?? 24;
+      let lastDisplayed = null;
 
       const pollList = await Poll.findAll({
         where: {
@@ -131,9 +131,9 @@ module.exports = {
     },
     {
       name: "duration",
-      description: "The poll's duration, in hours.",
+      description: "The poll's duration, in hours. Defaults to 24.",
       type: ApplicationCommandOptionType.Integer,
-      required: true,
+      required: false,
     },
   ],
   // devOnly: Boolean,

@@ -1,12 +1,21 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const path = require("path");
+const dotenv = require("dotenv");
+const env = process.env.NODE_ENV || "development";
+// Load environment-specific .env file
+dotenv.config({ path: `.env.${env}` });
 
-const sequelize = new Sequelize({
-  dialect: "sqlite",
-  storage: path.join(__dirname, "..", "..", "data", "database.sqlite"),
-  logging: false,
-  host: "localhost",
-});
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
+  {
+    host: process.env.DB_HOST || "localhost",
+    port: process.env.DB_PORT || 5432,
+    dialect: "postgres",
+    // storage: path.join(__dirname, "..", "..", "data", "database.sqlite"),
+    logging: false,
+  }
+);
 
 // Define the Poll model
 const Poll = sequelize.define(

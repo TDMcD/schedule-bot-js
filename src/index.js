@@ -11,7 +11,10 @@ const {
 const eventHandler = require("./handlers/eventHandler");
 const getApplicationCommands = require("./utils/getApplicationCommands");
 const { clientId } = require("../config.json");
-require("dotenv").config();
+const dotenv = require("dotenv");
+const env = process.env.NODE_ENV || "development";
+// Load environment-specific .env file
+dotenv.config({ path: `.env.${env}` });
 
 const client = new Client({
   intents: [
@@ -52,6 +55,15 @@ const client = new Client({
 //     .delete(Routes.applicationCommand(clientId, "1179744763071701002"))
 //     .then(() => console.log("Successfully deleted application command."))
 //     .catch(console.error);
+// });
+
+// Delete commands
+// client.on(Events.ClientReady, () => {
+//   // For guild commands
+//   const guild = client.guilds.cache.get("1110717491904270356");
+//   guild.commands.set([]);
+//   // For application commands
+//   client.application.commands.set([]);
 // });
 
 eventHandler(client);
